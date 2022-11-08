@@ -1,0 +1,29 @@
+{
+  "name": "RoRoomsFramework",
+  "tree": {
+    "$className": "DataModel",
+
+    "ServerScriptService": {
+      "RoRooms": {
+        "$className": "Folder",
+
+        "Loader": {
+          "$path": "src/InternalLoader",
+          
+          "Shared": {
+            "$path": "src/Shared",
+            "ExtPackages": {
+              "$path": "ExtPackages"
+            }
+          },
+          "Server": {
+            "$path": "src/Server"
+          },
+          "Client": {
+            "$path": "src/Client"
+          }
+        }
+      }
+    }
+  }
+}

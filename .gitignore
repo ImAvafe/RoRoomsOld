@@ -1,0 +1,9 @@
+# Project place file
+/RoRoomsFramework.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+# Dependencies
+Packages

@@ -6,12 +6,16 @@
     "ServerScriptService": {
       "RoRooms": {
         "$className": "Folder",
+        "$ignoreUnknownInstances": true,
 
         "Loader": {
-          "$path": "src/InternalLoader",
+          "$path": "src/Loader.server.lua",
           
           "Shared": {
             "$path": "src/Shared",
+            "Packages": {
+              "$path": "Packages"
+            },
             "ExtPackages": {
               "$path": "ExtPackages"
             }

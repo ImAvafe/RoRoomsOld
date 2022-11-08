@@ -2,8 +2,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ServerScriptService = game:GetService("ServerScriptService")
 local StarterPlayer = game:GetService("StarterPlayer")
 
-local ROROOMS_LOADER = script.Parent
-local DIRECTORY_LOAD_ORDER = {"Server", "Shared", "Client"}
+local ROROOMS_LOADER = ServerScriptService.RoRooms
+local DIRECTORY_LOAD_ORDER = {"Shared", "Server", "Client"}
 local TARGET_DIRECTORY_MAP = {
     Shared = ReplicatedStorage,
     Server = ServerScriptService,
@@ -12,25 +12,25 @@ local TARGET_DIRECTORY_MAP = {
 
 -- Loading helper functions
 
-local function LoadRoRoomsConfig()
+local function InstallRoRoomsConfig()
     local RoRoomsConfig = ROROOMS_LOADER:FindFirstChild("RoRoomsConfig")
     assert(RoRoomsConfig, "Missing RoRoomsConfig")
     RoRoomsConfig.Parent = ReplicatedStorage
 end
 
-local function CleanUpLoader()
+local function RemoveLoader()
     ROROOMS_LOADER:Destroy()
 end
 
-local function EnableInternalScripts(Ancestor: Instance)
-    for _, Descendant in ipairs(Ancestor:GetDescendants()) do
-        if Descendant:IsA("Script") then
-            Descendant.Disabled = false
+local function EnableDirectoryScripts(Directory: Instance)
+    for _, Child in ipairs(Directory:GetDescendants()) do
+        if Child:IsA("Script") or Child:IsA("LocalScript") then
+            Child.Disabled = false
         end
     end
 end
 
-local function LoadInternalDirectory(Directory, TargetDirectory: Instance)
+local function InstallInternalDirectory(Directory, TargetDirectory: Instance)
     Directory.Name = "RoRoomsCode"
     Directory.Parent = TargetDirectory
 end
@@ -40,16 +40,16 @@ local function LoadInternalDirectories()
         local Directory = script:FindFirstChild(DirectoryName)
         local TargetDirectory = TARGET_DIRECTORY_MAP[DirectoryName]
 
-        assert(Directory, "Loader directory "..DirectoryName.." not found.")
-        assert(TargetDirectory, "Invalid target directory for "..DirectoryName..".")
+        assert(Directory, "Internal directory "..DirectoryName.." not found")
+        assert(TargetDirectory, "Invalid target directory for "..DirectoryName)
 
-        LoadInternalDirectory(Directory, TargetDirectory)
-        EnableInternalScripts(Directory)
+        InstallInternalDirectory(Directory, TargetDirectory)
+        EnableDirectoryScripts(Directory)
     end
 end
 
 -- Loading process
 
-LoadRoRoomsConfig()
+InstallRoRoomsConfig()
 LoadInternalDirectories()
-CleanUpLoader()
+RemoveLoader()

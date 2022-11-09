@@ -1,6 +1,6 @@
 local EmotesService = {}
 
-function EmotesService:OnStart()
+function EmotesService:Start()
     print('1')
 end
 

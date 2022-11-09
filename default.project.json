@@ -4,6 +4,7 @@
     "$className": "DataModel",
 
     "ServerScriptService": {
+      "$ignoreUnknownInstances": true,
       "RoRooms": {
         "$className": "Folder",
         "$ignoreUnknownInstances": true,

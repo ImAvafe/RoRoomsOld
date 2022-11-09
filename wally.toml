@@ -7,3 +7,4 @@ realm = "shared"
 [dependencies]
 loader = "sleitnick/loader@2.0.0"
 net = "sleitnick/net@0.1.0"
+knit = "sleitnick/knit@1.4.7"

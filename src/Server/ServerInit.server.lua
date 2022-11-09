@@ -4,10 +4,10 @@ local ServerScriptService = game:GetService("ServerScriptService")
 local Shared = ReplicatedStorage.RoRoomsCode
 local Server = ServerScriptService.RoRoomsCode
 
-local Loader = require(Shared.Packages.loader)
+local Knit = require(Shared.Packages.knit)
 
-Loader.SpawnAll(
-	Loader.LoadDescendants(Server.Services, Loader.MatchesName("Service$")),
-    "OnInit",
-	"OnStart"
-)
+Knit.AddServices(Server.Services)
+
+Knit.Start():andThen(function()
+	print("KnitServer started!")
+end):catch(warn)

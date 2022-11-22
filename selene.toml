@@ -1,1 +1,4 @@
 std = "roblox"
+
+[lints]
+global_usage = "allow" # RoRooms directory locations are changed at runtime, so they need to be set once from a central source. Using `shared` is the most convenient way to do so with the least downsides. Don't @ me

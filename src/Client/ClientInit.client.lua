@@ -1,13 +1,17 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local StarterPlayerScripts = game:GetService("StarterPlayer").StarterPlayerScripts
+local Shared = game:GetService("ReplicatedStorage"):FindFirstChild("RoRoomsCode")
+local Client = game:GetService("StarterPlayer"):WaitForChild("StarterPlayerScripts"):FindFirstChild("RoRoomsCode")
 
-local Shared = ReplicatedStorage.RoRoomsCode
-local Client = StarterPlayerScripts.RoRoomsCode
+-- RoRooms directory locations are changed at runtime, so they need to be set once from a central source.
+-- This is the most convenient way to do so with the least downsides. Don't @ me
+shared.RoRooms = {
+	Shared = Shared,
+	Client = Client,
+}
 
 local Knit = require(Shared.Packages.knit)
 
 Knit.AddControllers(Client.Controllers)
 
 Knit.Start():andThen(function()
-	print("KnitClient started!")
+	print("RoRooms client started!")
 end):catch(warn)

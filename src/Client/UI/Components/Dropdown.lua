@@ -4,24 +4,19 @@ local Client = shared.RoRooms.Client
 local Fusion = require(Shared.ExtPackages.fusion)
 
 local Hydrate = Fusion.Hydrate
-local WithChild = Fusion.WithChild
-local Children = Fusion.Children
+local Value = Fusion.Value
 
 local UIInstances = Client.UI.Instances
 
 return function (Props)
-    return Hydrate(UIInstances.MainFrame:Clone()) {
+    local Selection = Value(Props.Options[1])
+
+    return Hydrate(UIInstances.Dropdown:Clone()) {
         Name = Props.Name,
         AnchorPoint = Props.AnchorPoint,
         Position = Props.Position,
         Size = Props.Size,
-
-        [WithChild "Content"] = {
-            [Children] = Props[Children],
-
-            [WithChild "UIListLayout"] = {
-                Padding = UDim.new(0, Props.ChildSpacing)
-            },
-        }
+        LayoutOrder = Props.LayoutOrder,
+        Text = Selection:get()
     }
 end

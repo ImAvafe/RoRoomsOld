@@ -12,44 +12,50 @@ local TARGET_DIRECTORY_MAP = {
 
 -- Loading helper functions
 
-local function InstallRoRoomsConfig()
+local function SetupRoRoomsConfig()
     local RoRoomsConfig = ROROOMS_LOADER:FindFirstChild("RoRoomsConfig")
-    assert(RoRoomsConfig, "Missing RoRoomsConfig")
-    RoRoomsConfig.Parent = ReplicatedStorage
+    if not RoRoomsConfig then
+        RoRoomsConfig = Instance.new("Configuration")
+        RoRoomsConfig.Name = "RoRoomsConfig"
+    end
+    RoRoomsConfig.Parent = ReplicatedStorage.RoRoomsCode
 end
 
 local function RemoveLoader()
     ROROOMS_LOADER:Destroy()
 end
 
-local function EnableDirectoryScripts(Directory: Instance)
-    for _, Child in ipairs(Directory:GetDescendants()) do
-        if Child:IsA("Script") or Child:IsA("LocalScript") then
-            Child.Disabled = false
+local function EnableDirectoriesScripts(Directories: table)
+    for _, Directory in ipairs(Directories) do
+        for _, Child in ipairs(Directory:GetDescendants()) do
+            if Child:IsA("Script") or Child:IsA("LocalScript") then
+                Child.Disabled = false
+            end
         end
     end
 end
 
-local function InstallInternalDirectory(Directory, TargetDirectory: Instance)
+local function InstallDirectory(Directory, TargetDirectory: Instance)
     Directory.Name = "RoRoomsCode"
     Directory.Parent = TargetDirectory
 end
 
-local function LoadInternalDirectories()
+local function InstallDirectories()
     for _, DirectoryName in ipairs(DIRECTORY_LOAD_ORDER) do
         local Directory = script:FindFirstChild(DirectoryName)
         local TargetDirectory = TARGET_DIRECTORY_MAP[DirectoryName]
 
-        assert(Directory, "Internal directory "..DirectoryName.." not found")
+        assert(Directory, " directory "..DirectoryName.." not found")
         assert(TargetDirectory, "Invalid target directory for "..DirectoryName)
 
-        InstallInternalDirectory(Directory, TargetDirectory)
-        EnableDirectoryScripts(Directory)
+        InstallDirectory(Directory, TargetDirectory)
     end
 end
 
 -- Loading process
 
-InstallRoRoomsConfig()
-LoadInternalDirectories()
+
+InstallDirectories()
+SetupRoRoomsConfig()
+EnableDirectoriesScripts({ServerScriptService.RoRoomsCode})
 RemoveLoader()

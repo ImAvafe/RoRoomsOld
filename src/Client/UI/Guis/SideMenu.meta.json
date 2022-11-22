@@ -1,0 +1,12 @@
+{
+    "properties": {
+        "Attributes": {
+            "DefaultUI": {"Bool": true}
+        },
+        "AttributesSerialized": {
+            "Attributes": {
+                "DefaultUI": {"Bool": true}
+            }
+        }
+    }
+}

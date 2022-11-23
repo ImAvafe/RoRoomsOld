@@ -55,7 +55,7 @@ return function()
                         LayoutOrder = 2,
                     },
                     Dropdown {
-                        Options = {"No Role"},
+                        Options = {{Text = "No Role", Color = Color3.fromRGB(250, 113, 255)}},
                         LayoutOrder = 3,
                     }
                     -- role dropdown input

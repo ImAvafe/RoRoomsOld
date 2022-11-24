@@ -21,7 +21,7 @@ function UIController:KnitStart()
     for _, GuiModule in ipairs(Client.UI.Guis:GetChildren()) do
         if GuiModule:GetAttribute("DefaultUI") then
             local Gui = require(GuiModule)
-            self:MountUI(Gui())
+            self:MountUI(Gui{})
         end
     end
 end

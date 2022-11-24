@@ -15,9 +15,10 @@ local Title = require(UIComponents.Title)
 local TextBox = require(UIComponents.TextBox)
 local Dropdown = require(UIComponents.Dropdown)
 
-return function()
+return function(Props)
     return New "ScreenGui" {
         Name = "ProfileGui",
+        Parent = Props.Parent,
         Enabled = Computed(function()
             local CurrentMainGui = States.CurrentMainGui:get()
             return CurrentMainGui == script.Name

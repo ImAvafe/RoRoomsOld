@@ -29,7 +29,7 @@ end
 function EmotesController:KnitStart()
     UIController = Knit.GetController("UIController")
     
-    UIController:MountUI(EmotesGui())
+    UIController:MountUI(EmotesGui{})
 end
 
 return EmotesController

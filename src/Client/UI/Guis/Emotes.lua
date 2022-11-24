@@ -16,9 +16,10 @@ local ScrollingList = require(UIComponents.ScrollingList)
 local TextButton = require(UIComponents.TextButton)
 local Title = require(UIComponents.Title)
 
-return function()
+return function(Props)
     return New "ScreenGui" {
         Name = "EmotesGui",
+        Parent = Props.Parent,
         Enabled = Computed(function()
             local CurrentMainGui = States.CurrentMainGui:get()
             return CurrentMainGui == script.Name
@@ -57,7 +58,7 @@ return function()
                                 PaddingRight = UDim.new(0, 3),
                             },
     
-                            ForValues(Shared.RoRoomsConfig.Features.Emotes:GetChildren(), function(Emote: Animation)
+                            ForValues(shared.RoRooms.Config.Features.Emotes:GetChildren(), function(Emote: Animation)
                                 local Emoji = Emote:GetAttribute("Emoji")
                                 return TextButton {
                                     Name = Emote.Name,

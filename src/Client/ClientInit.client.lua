@@ -6,6 +6,7 @@ local Client = game:GetService("StarterPlayer"):WaitForChild("StarterPlayerScrip
 shared.RoRooms = {
 	Shared = Shared,
 	Client = Client,
+	Config = Shared.RoRoomsConfig,
 }
 
 local Knit = require(Shared.Packages.knit)

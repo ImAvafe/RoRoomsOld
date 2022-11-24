@@ -18,9 +18,10 @@ local ToggleablesGuisInfo = {
     Emotes = {Icon = "rbxassetid://11386962843"},
 }
 
-return function()
+return function(Props)
     return New "ScreenGui" {
         Name = "SideMenuGui",
+        Parent = Props.Parent,
 
         [Children] = {
             New "Frame" {

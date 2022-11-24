@@ -6,6 +6,7 @@ local Server = game:GetService("ServerScriptService"):FindFirstChild("RoRoomsCod
 shared.RoRooms = {
 	Shared = Shared,
 	Server = Server,
+	Config = Shared.RoRoomsConfig,
 }
 
 local Knit = require(Shared.Packages.knit)

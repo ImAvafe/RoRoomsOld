@@ -14,7 +14,7 @@ local ProfileController = Knit.CreateController {
 function ProfileController:KnitStart()
     UIController = Knit.GetController("UIController")
     
-    UIController:MountUI(ProfileGui())
+    UIController:MountUI(ProfileGui{})
 end
 
 return ProfileController

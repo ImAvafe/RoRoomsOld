@@ -1,8 +1,5 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local StarterPlayer = game:GetService("StarterPlayer")
-
-local Shared = ReplicatedStorage.RoRoomsCode
-local Client = StarterPlayer.StarterPlayerScripts.RoRoomsCode
+local Shared = shared.RoRooms.Shared
+local Client = shared.RoRooms.Client
 
 local Fusion = require(Shared.ExtPackages.fusion)
 

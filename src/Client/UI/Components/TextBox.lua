@@ -27,7 +27,7 @@ return function (Props)
     }
 
     Observer(Text):onChange(function()
-        local NewText = Text:get()
+        local NewText = Text:get() or ""
         Text:set(NewText:sub(1, Props.CharLimit or -1))
     end)
 

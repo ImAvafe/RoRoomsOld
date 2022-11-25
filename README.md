@@ -13,4 +13,4 @@
 
 ## Documentation
 
-Features and implementation / configuration options are documented at the [documentation site](https://imcyff.github.io/rorooms)!
+Features and implementation / configuration options are not documented yet

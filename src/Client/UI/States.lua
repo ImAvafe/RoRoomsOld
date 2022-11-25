@@ -6,7 +6,7 @@ local Knit = require(Shared.Packages.knit)
 local Value = Fusion.Value
 
 local Controllers = {"UIController", "EmotesController"}
-local Services = {}
+local Services = {"UserProfileService"}
 
 local States = {}
 

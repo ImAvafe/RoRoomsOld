@@ -20,6 +20,7 @@ return function(Props)
     return New "ScreenGui" {
         Name = "EmotesGui",
         Parent = Props.Parent,
+        ResetOnSpawn = false,
         Enabled = Computed(function()
             local CurrentMainGui = States.CurrentMainGui:get()
             return CurrentMainGui == script.Name

@@ -19,6 +19,7 @@ return function(Props)
     return New "ScreenGui" {
         Name = "ProfileGui",
         Parent = Props.Parent,
+        ResetOnSpawn = false,
         Enabled = Computed(function()
             local CurrentMainGui = States.CurrentMainGui:get()
             return CurrentMainGui == script.Name
@@ -47,6 +48,9 @@ return function(Props)
                         PlaceholderText = "Name",
                         CharLimit = 20,
                         LayoutOrder = 1,
+                        OnFocusLost = function(Text)
+                            States.UserProfileService:ChangeNickname(Text)
+                        end,
                     },
                     TextBox {
                         Name = "BioInput",

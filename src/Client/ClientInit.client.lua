@@ -10,9 +10,12 @@ shared.RoRooms = {
 }
 
 local Knit = require(Shared.Packages.knit)
+local Loader = require(Shared.Packages.loader)
 
 Knit.AddControllers(Client.Controllers)
 
 Knit.Start():andThen(function()
 	print("RoRooms client started!")
+
+	Loader.LoadChildren(Client.Components)
 end):catch(warn)

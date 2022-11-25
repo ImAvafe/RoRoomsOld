@@ -10,9 +10,12 @@ shared.RoRooms = {
 }
 
 local Knit = require(Shared.Packages.knit)
+local Loader = require(Shared.Packages.loader)
 
 Knit.AddServices(Server.Services)
 
 Knit.Start():andThen(function()
 	print("RoRooms server started!")
+
+	Loader.LoadChildren(Server.Components)
 end):catch(warn)

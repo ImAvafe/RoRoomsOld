@@ -7,6 +7,7 @@ local Hydrate = Fusion.Hydrate
 local Out = Fusion.Out
 local Value = Fusion.Value
 local Observer = Fusion.Observer
+local OnEvent = Fusion.OnEvent
 
 local UIInstances = Client.UI.Instances
 
@@ -24,6 +25,11 @@ return function (Props)
         
         Text = Text,
         [Out "Text"] = Text,
+        [OnEvent "FocusLost"] = function()
+            if Props.OnFocusLost then
+                Props.OnFocusLost(Text:get())
+            end
+        end,
     }
 
     Observer(Text):onChange(function()

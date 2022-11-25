@@ -22,6 +22,7 @@ return function(Props)
     return New "ScreenGui" {
         Name = "SideMenuGui",
         Parent = Props.Parent,
+        ResetOnSpawn = false,
 
         [Children] = {
             New "Frame" {

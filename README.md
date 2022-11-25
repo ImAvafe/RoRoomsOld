@@ -11,8 +11,6 @@
   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/imcyff/rorooms/total">
 </p>
 
-<br>
-
 ## Documentation
 
 Features and implementation / configuration options are documented at the [documentation site](https://imcyff.github.io/rorooms)!

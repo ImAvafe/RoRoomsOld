@@ -10,7 +10,7 @@ dependencies = []
 [[package]]
 name = "cyphical/roroomsframework"
 version = "0.1.0"
-dependencies = [["colourutils", "csqrl/colour-utils@1.3.1"], ["knit", "sleitnick/knit@1.4.7"], ["loader", "sleitnick/loader@2.0.0"], ["net", "sleitnick/net@0.1.0"]]
+dependencies = [["colourutils", "csqrl/colour-utils@1.3.1"], ["component", "sleitnick/component@2.4.6"], ["knit", "sleitnick/knit@1.4.7"], ["loader", "sleitnick/loader@2.0.0"], ["net", "sleitnick/net@0.1.0"], ["promise", "evaera/promise@4.0.0"]]
 
 [[package]]
 name = "evaera/promise"
@@ -21,6 +21,11 @@ dependencies = []
 name = "sleitnick/comm"
 version = "0.3.1"
 dependencies = [["Option", "sleitnick/option@1.0.4"], ["Promise", "evaera/promise@4.0.0"], ["Signal", "sleitnick/signal@1.2.1"]]
+
+[[package]]
+name = "sleitnick/component"
+version = "2.4.6"
+dependencies = [["Promise", "evaera/promise@4.0.0"], ["Signal", "sleitnick/signal@1.2.1"], ["Symbol", "sleitnick/symbol@2.0.1"], ["Trove", "sleitnick/trove@0.4.2"]]
 
 [[package]]
 name = "sleitnick/knit"
@@ -45,4 +50,14 @@ dependencies = []
 [[package]]
 name = "sleitnick/signal"
 version = "1.2.1"
+dependencies = []
+
+[[package]]
+name = "sleitnick/symbol"
+version = "2.0.1"
+dependencies = []
+
+[[package]]
+name = "sleitnick/trove"
+version = "0.4.2"
 dependencies = []

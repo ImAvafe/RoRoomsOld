@@ -15,6 +15,8 @@ local Title = require(UIComponents.Title)
 local TextBox = require(UIComponents.TextBox)
 local Dropdown = require(UIComponents.Dropdown)
 
+-- cursive too AHAHHAHAHAHAH
+
 return function(Props)
     return New "ScreenGui" {
         Name = "ProfileGui",
@@ -29,7 +31,7 @@ return function(Props)
             MainFrame {
                 AnchorPoint = Vector2.new(1, 0.5),
                 Position = UDim2.fromScale(0.91, 0.5),
-                Size = UDim2.fromOffset(295, 191),
+                Size = UDim2.fromOffset(295, 0),
                 ChildSpacing = 12,
     
                 [Children] = {

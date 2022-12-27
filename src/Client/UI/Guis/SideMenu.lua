@@ -28,7 +28,7 @@ return function(Props)
             New "Frame" {
                 AnchorPoint = Vector2.new(1, 0.5),
                 Position = UDim2.fromScale(0.985, 0.5),
-                Size = UDim2.fromOffset(8, 83),
+                AutomaticSize = Enum.AutomaticSize.XY,
                 BackgroundTransparency = 1,
 
                 [Children] = {
@@ -36,7 +36,7 @@ return function(Props)
                         Padding = UDim.new(0, 11),
                         SortOrder = Enum.SortOrder.LayoutOrder,
                         VerticalAlignment = Enum.VerticalAlignment.Center,
-                        HorizontalAlignment = Enum.HorizontalAlignment.Right,
+                        HorizontalAlignment = Enum.HorizontalAlignment.Left,
                     },
 
                     Computed(function()
